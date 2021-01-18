@@ -66,3 +66,11 @@ class FileStorage:
                         self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
+
+    """ this part was adden in the flask project
+        0x04. AirBnB clone - Web framework
+    """
+    def close(self):
+        """calls reload method
+        """
+        reload()

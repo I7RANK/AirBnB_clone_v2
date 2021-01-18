@@ -91,3 +91,12 @@ class DBStorage:
         Base.metadata.create_all(self.__engine)
         Session = sessionmaker(bind=self.__engine, expire_on_commit=False)
         self.__session = scoped_session(Session)
+
+    """ this part was adden in the flask project
+        0x04. AirBnB clone - Web framework
+    """
+    def close(self):
+        """calls reload method
+        """
+        self.__session.remove()
+
