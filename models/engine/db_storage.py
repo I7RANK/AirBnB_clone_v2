@@ -100,4 +100,3 @@ class DBStorage:
         """calls reload method
         """
         self.__session.remove()
-
