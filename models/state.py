@@ -11,23 +11,23 @@ from sqlalchemy.orm import relationship
 
 import os
 
+
 class State(BaseModel, Base):
     """ State class """
     __tablename__ = 'states'
     name = Column(String(128), nullable=False)
 
-    if os.environ.get('HBNB_TYPE_STORAGE') == 'db':
-        cities = relationship(
-            "City",
-            backref="states",
-            cascade="all, delete, delete-orphan"
-        )
-    else:
+    cities = relationship(
+        "City",
+        backref="states",
+        cascade="all, delete, delete-orphan"
+    )
+    if os.environ.get('HBNB_TYPE_STORAGE') != 'db':
         @property
         def cities(self):
             """ Getter cities """
             list_city = []
-            for city in models.storage.all(City).values():
+            for city in list(models.storage.all(City).values()):
                 if self.id == city.state_id:
                     list_city.append(City)
             return list_city
