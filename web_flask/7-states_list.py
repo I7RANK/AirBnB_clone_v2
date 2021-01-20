@@ -24,7 +24,7 @@ def render_states_list():
 
 # It's executed every time the application context tears down
 @app.teardown_appcontext
-def bye():
+def bye(error):
     """ Close the SQLAlquemy session """
     storage.close()
 
