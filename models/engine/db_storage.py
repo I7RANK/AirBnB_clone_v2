@@ -6,8 +6,6 @@ import json
 from models.base_model import BaseModel, Base
 from models.city import City
 from models.state import State
-from models.user import User
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import scoped_session
@@ -15,6 +13,7 @@ import os
 """ from models.amenity import Amenity """
 """ from models.place import Place """
 """ from models.review import Review """
+""" from models.user import User """
 
 # Get environment variables
 HBNB_MYSQL_USER = os.getenv('HBNB_MYSQL_USER')
