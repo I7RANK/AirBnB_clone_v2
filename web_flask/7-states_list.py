@@ -15,6 +15,13 @@ app = Flask(__name__)
 data = storage.all(State).values()
 
 
+# It's executed every time the application context tears down
+@app.teardown_appcontext
+def bye(error):
+    """ Close the SQLAlquemy session """
+    storage.close()
+
+
 @app.route('/states_list', strict_slashes=False)
 def render_states_list():
     """returns a web page with a states list
@@ -23,13 +30,6 @@ def render_states_list():
         web_page: states list
     """
     return render_template("7-states_list.html", data=data)
-
-
-# It's executed every time the application context tears down
-@app.teardown_appcontext
-def bye(error):
-    """ Close the SQLAlquemy session """
-    storage.close()
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5000")
