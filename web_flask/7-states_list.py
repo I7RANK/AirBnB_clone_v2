@@ -8,8 +8,8 @@ from models import storage
 from models.state import State
 
 app = Flask(__name__)
-# app.jinja_env.trim_blocks = True
-# app.jinja_env.lstrip_blocks = True
+app.jinja_env.trim_blocks = True
+app.jinja_env.lstrip_blocks = True
 
 
 # It's executed every time the application context tears down
