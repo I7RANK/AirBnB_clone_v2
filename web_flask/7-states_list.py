@@ -12,9 +12,6 @@ app = Flask(__name__)
 # app.jinja_env.lstrip_blocks = True
 
 
-data = storage.all(State).values()
-
-
 # It's executed every time the application context tears down
 @app.teardown_appcontext
 def bye(error):
@@ -29,6 +26,7 @@ def render_states_list():
     Returns:
         web_page: states list
     """
+    data = storage.all(State).values()
     return render_template("7-states_list.html", data=data)
 
 if __name__ == '__main__':
