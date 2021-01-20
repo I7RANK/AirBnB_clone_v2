@@ -22,12 +22,12 @@ class State(BaseModel, Base):
         backref="states",
         cascade="all, delete, delete-orphan"
     )
-    if os.environ.get('HBNB_TYPE_STORAGE') != 'db':
+    if os.getenv('HBNB_TYPE_STORAGE') != 'db':
         @property
         def cities(self):
             """ Getter cities """
             list_city = []
             for city in list(models.storage.all(City).values()):
                 if self.id == city.state_id:
-                    list_city.append(City)
+                    list_city.append(city)
             return list_city
