@@ -52,4 +52,3 @@ def render_cities_by_states(id):
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5000")
-
