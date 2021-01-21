@@ -53,6 +53,7 @@
     left: 0;
     top: 70px;
     max-height: 300px;
+    overflow-y: scroll;
     width: 100%;
     border: solid 1px #dddddd;
     border-radius: 4px;
