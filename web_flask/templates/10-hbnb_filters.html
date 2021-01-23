@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirBnB Clone</title>
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles/4-common.css">
-    <link rel="stylesheet" href="styles/3-footer.css">
-    <link rel="stylesheet" href="styles/3-header.css">
-    <link rel="stylesheet" href="styles/6-filters.css">
+    <link rel="stylesheet" href="../static/styles/4-common.css">
+    <link rel="stylesheet" href="../static/styles/styles/3-footer.css">
+    <link rel="stylesheet" href="../static/styles/styles/3-header.css">
+    <link rel="stylesheet" href="../static/styles/styles/6-filters.css">
 </head>
 <body>
     <header>
@@ -38,7 +38,9 @@
                 &nbsp;
                 <div class="popover">
                     <ul>
-                        <li>Internet</li>
+                        {% for amenity in amenitys | sort(attribute="name") %}
+                        <li>{{amenity}}</li>
+                        {% endfor %}
                         <li>Kitchen</li>
                         <li>Baño</li>
                         <li>Terraza</li>
